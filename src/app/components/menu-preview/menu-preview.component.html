@@ -1,0 +1,80 @@
+<!-- Filter Tabs -->
+<div class="flex flex-wrap justify-center gap-3 mb-10">
+  <button
+    *ngFor="let cat of categories"
+    (click)="setCategory(cat)"
+    [class]="activeCategory() === cat
+      ? 'bg-red-600 text-white font-black px-6 py-2.5 rounded-full text-sm uppercase tracking-wide shadow-lg shadow-red-500/30 scale-105'
+      : 'bg-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-700 font-bold px-6 py-2.5 rounded-full text-sm uppercase tracking-wide border border-white/10 hover:border-white/20 transition-all duration-200'"
+  >
+    {{ cat }}
+  </button>
+</div>
+
+<!-- Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div
+    *ngFor="let item of filteredItems()"
+    class="group bg-neutral-800 rounded-2xl overflow-hidden border border-white/10 hover:border-red-500/40 transition-all duration-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-red-900/20 cursor-pointer"
+  >
+    <!-- Image -->
+    <div class="relative h-44 overflow-hidden">
+      <img
+        [src]="item.image"
+        [alt]="item.name"
+        class="w-full h-full object-cover transition-transform duration-600 group-hover:scale-110"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/70 to-transparent"></div>
+
+      <!-- Popular badge -->
+      <div *ngIf="item.popular" class="absolute top-2 right-2 bg-red-600 text-white text-xs font-black px-2.5 py-1 rounded-full">
+        ⭐ Popular
+      </div>
+
+      <!-- Category chip -->
+      <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-neutral-300 text-xs font-semibold px-2.5 py-1 rounded-full border border-white/20">
+        {{ item.category }}
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="p-4">
+      <h4 class="text-white font-black text-base mb-1 group-hover:text-red-400 transition-colors duration-300 leading-tight">
+        {{ item.name }}
+      </h4>
+      <p class="text-neutral-500 text-xs leading-relaxed mb-3 line-clamp-2">
+        {{ item.description }}
+      </p>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span
+          *ngFor="let tag of item.tags"
+          class="text-neutral-400 text-xs bg-neutral-700 px-2 py-0.5 rounded-md"
+        >
+          {{ tag }}
+        </span>
+      </div>
+
+      <!-- Price + action -->
+      <div class="flex items-center justify-between pt-3 border-t border-white/10">
+        <span class="text-red-400 font-black text-xl">{{ item.price }}</span>
+        <button
+          class="bg-red-600/20 hover:bg-red-600 border border-red-500/30 hover:border-red-500 text-red-400 hover:text-white w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:shadow-md hover:shadow-red-500/30"
+          aria-label="Agregar al pedido"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- View Full Menu CTA -->
+<div class="text-center mt-12">
+  <button class="bg-transparent border-2 border-red-600/50 hover:border-red-500 hover:bg-red-600/10 text-red-400 hover:text-red-300 font-black text-sm px-10 py-3.5 rounded-full uppercase tracking-widest transition-all duration-300">
+    Ver Menú Completo →
+  </button>
+</div>

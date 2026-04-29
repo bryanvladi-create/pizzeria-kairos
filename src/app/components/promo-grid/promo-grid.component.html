@@ -1,0 +1,62 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div
+    *ngFor="let promo of promos"
+    [class]="promo.featured
+      ? 'promo-card group relative bg-neutral-800 rounded-2xl overflow-hidden border-2 border-red-500/60 hover:border-red-400 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 cursor-pointer lg:col-span-1'
+      : 'promo-card group relative bg-neutral-800 rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 cursor-pointer'"
+  >
+    <!-- Featured glow -->
+    <div *ngIf="promo.featured" class="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent pointer-events-none z-10"></div>
+
+    <!-- Image -->
+    <div class="relative h-48 overflow-hidden">
+      <img
+        [src]="promo.image"
+        [alt]="promo.title"
+        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/80 to-transparent"></div>
+
+      <!-- Discount Badge -->
+      <div class="absolute top-3 left-3">
+        <span [class]="promo.badgeColor + ' text-white text-xs font-black px-3 py-1.5 rounded-full uppercase tracking-wide shadow-lg'">
+          {{ promo.badge }}
+        </span>
+      </div>
+
+      <!-- Discount % -->
+      <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-sm font-black px-3 py-1 rounded-full border border-white/20">
+        {{ promo.discount }}
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="p-5">
+      <h3 class="text-white font-black text-lg leading-tight mb-1 group-hover:text-red-400 transition-colors duration-300">
+        {{ promo.title }}
+      </h3>
+      <p class="text-neutral-400 text-sm leading-snug mb-4">{{ promo.subtitle }}</p>
+
+      <!-- Price Row -->
+      <div class="flex items-end justify-between mb-4">
+        <div>
+          <span class="text-red-400 font-black text-2xl">{{ promo.price }}</span>
+          <span *ngIf="promo.oldPrice !== promo.price" class="text-neutral-600 text-sm line-through ml-2">{{ promo.oldPrice }}</span>
+        </div>
+      </div>
+
+      <!-- Expires -->
+      <div class="flex items-center gap-1.5 text-neutral-500 text-xs border-t border-white/10 pt-3">
+        <svg class="w-3.5 h-3.5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span>{{ promo.expires }}</span>
+      </div>
+
+      <!-- CTA -->
+      <button class="w-full mt-4 bg-red-600/20 hover:bg-red-600 border border-red-500/30 hover:border-red-500 text-red-300 hover:text-white font-bold text-sm py-2.5 rounded-xl uppercase tracking-wide transition-all duration-300">
+        Aprovechar Oferta
+      </button>
+    </div>
+  </div>
+</div>
