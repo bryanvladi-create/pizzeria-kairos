@@ -1,12 +1,100 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-EC">
 <head>
   <meta charset="utf-8">
-  <title>Pizzería Kairos</title>
+  <title>Pizzería Kairos — Pizzas Artesanales desde $4.50 | Quito, Ecuador</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Pizzería Kairos — La pizza que cambia tu mundo. Masa artesanal, ingredientes frescos.">
+
+  <!-- ─── SEO ─── -->
+  <meta name="description" content="Pizzería Kairos en Quito — Pizzas artesanales desde $4.50. Personal, Pequeña, Mediana, Familiar y Extra Familiar. Elige tus ingredientes: Peperoni, Jamón, Pollo, Tocino y más. Para servirse o para llevar.">
+  <meta name="keywords" content="pizzería kairos, pizza quito, pizza ecuador, pizza artesanal quito, pizza para llevar quito, pizza familiar quito, peperoni, juan nuñez quito">
+  <meta name="author" content="Pizzería Kairos">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pizzeriakairos.netlify.app/">
+
+  <!-- ─── Open Graph (preview en WhatsApp, Facebook) ─── -->
+  <meta property="og:type"        content="restaurant">
+  <meta property="og:title"       content="Pizzería Kairos — Pizzas desde $4.50 en Quito">
+  <meta property="og:description" content="Pizzas artesanales en Quito desde $4.50. Elige hasta 3 ingredientes. Para servirse o para llevar. ¡Pide ya!">
+  <meta property="og:image"       content="https://pizzeriakairos.netlify.app/images/og-preview.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url"         content="https://pizzeriakairos.netlify.app/">
+  <meta property="og:locale"      content="es_EC">
+  <meta property="og:site_name"   content="Pizzería Kairos">
+
+  <!-- ─── Twitter Card ─── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Pizzería Kairos — Pizzas desde $4.50 en Quito">
+  <meta name="twitter:description" content="Pizzas artesanales desde $4.50. Para servirse o llevar. ¡Pide ya!">
+  <meta name="twitter:image"       content="https://pizzeriakairos.netlify.app/images/og-preview.jpg">
+
+  <!-- ─── Schema.org Restaurant (datos estructurados para Google) ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Pizzería Kairos",
+    "url": "https://pizzeriakairos.netlify.app/",
+    "image": "https://pizzeriakairos.netlify.app/images/og-preview.jpg",
+    "priceRange": "$",
+    "servesCuisine": "Pizza",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Juan Nuñez",
+      "postalCode": "170131",
+      "addressLocality": "Quito",
+      "addressRegion": "Pichincha",
+      "addressCountry": "EC"
+    },
+    "hasMap": "https://maps.app.goo.gl/MTr4o39fpMQuFTkG8",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"],
+        "opens": "11:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Friday","Saturday"],
+        "opens": "14:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "11:00",
+        "closes": "18:00"
+      }
+    ],
+    "menu": "https://pizzeriakairos.netlify.app/#menu",
+    "hasMenu": {
+      "@type": "Menu",
+      "name": "Menú Pizzería Kairos",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Pizzas",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Kairos Personal",      "offers": { "@type": "Offer", "price": "4.50",  "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Kairos Pequeña",       "offers": { "@type": "Offer", "price": "6.50",  "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Kairos Mediana",       "offers": { "@type": "Offer", "price": "9.00",  "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Kairos Familiar",      "offers": { "@type": "Offer", "price": "11.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Kairos Extra Familiar","offers": { "@type": "Offer", "price": "13.00", "priceCurrency": "USD" } }
+          ]
+        }
+      ]
+    }
+  }
+  </script>
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
   <app-root></app-root>
